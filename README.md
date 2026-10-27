@@ -1,5 +1,7 @@
 # Chess Kingdoms
 
+**PLAY ONLINE IN YOUR BROWSER: https://thezamos.github.io/chess-kingdoms-releases/**
+
 A turn-based strategy game played with chess pieces. Grow an economy, upgrade your Castles, raise an army and be the last King standing.
 
 Every Player starts with a King and a few Pieces on a map hidden by fog of war. Pawns gather Resources, Bishops carry Relics, Fortresses build Castles, and Castles recruit and upgrade your army, in the spirit of Age of Empires. Then you go hunting for the other Kings.
