@@ -26,8 +26,6 @@ This repository holds the Windows downloads. The game's code lives elsewhere.
 3. Unzip it into a folder of its own, for example `Documents\Chess Kingdoms`.
 4. Run `ChessKingdoms.exe`.
 
-Keep the `.exe` and the `.pck` file together in the same folder. The game needs both.
-
 Windows may show a "Windows protected your PC" warning the first time, because the game isn't signed. Click **More info**, then **Run anyway**.
 
 ## Updates
