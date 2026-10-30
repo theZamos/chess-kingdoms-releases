@@ -1,6 +1,6 @@
 # Chess Kingdoms
 
-**PLAY ONLINE IN YOUR BROWSER: https://thezamos.github.io/chess-kingdoms-releases/**
+**[PLAY ONLINE IN YOUR BROWSER](https://chesskingdoms.net/)**
 
 A turn-based strategy game played with chess pieces. Grow an economy, upgrade your Castles, raise an army and be the last King standing.
 
