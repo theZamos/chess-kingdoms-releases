@@ -1,0 +1,199 @@
+{
+	"default_piece": "pawn",
+	"palette": [
+		{
+			"art": 0,
+			"color": "#f2f2ff",
+			"name": "White",
+			"tint": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			]
+		},
+		{
+			"art": 1,
+			"color": "#262633",
+			"name": "Black",
+			"tint": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			]
+		},
+		{
+			"art": 0,
+			"color": "#d91f1a",
+			"name": "Red",
+			"tint": [
+				1.0,
+				0.219999998807907,
+				0.180000007152557,
+				1.0
+			]
+		},
+		{
+			"art": 0,
+			"color": "#3373f2",
+			"name": "Blue",
+			"tint": [
+				0.349999994039536,
+				0.550000011920929,
+				1.0,
+				1.0
+			]
+		},
+		{
+			"art": 0,
+			"color": "#33b333",
+			"name": "Green",
+			"tint": [
+				0.349999994039536,
+				0.850000023841858,
+				0.300000011920929,
+				1.0
+			]
+		},
+		{
+			"art": 0,
+			"color": "#f2d91a",
+			"name": "Yellow",
+			"tint": [
+				1.0,
+				0.899999976158142,
+				0.200000002980232,
+				1.0
+			]
+		},
+		{
+			"art": 0,
+			"color": "#f2801a",
+			"name": "Orange",
+			"tint": [
+				1.0,
+				0.550000011920929,
+				0.150000005960464,
+				1.0
+			]
+		},
+		{
+			"art": 0,
+			"color": "#8c40d9",
+			"name": "Purple",
+			"tint": [
+				0.699999988079071,
+				0.400000005960464,
+				1.0,
+				1.0
+			]
+		},
+		{
+			"art": 0,
+			"color": "#805226",
+			"name": "Brown",
+			"tint": [
+				0.680000007152557,
+				0.46000000834465,
+				0.280000001192093,
+				1.0
+			]
+		},
+		{
+			"art": 0,
+			"color": "#f273b3",
+			"name": "Pink",
+			"tint": [
+				1.0,
+				0.550000011920929,
+				0.800000011920929,
+				1.0
+			]
+		}
+	],
+	"pieces": [
+		{
+			"arts": 2,
+			"id": "king",
+			"name": "King"
+		},
+		{
+			"arts": 2,
+			"id": "queen",
+			"name": "Queen"
+		},
+		{
+			"arts": 2,
+			"id": "rook",
+			"name": "Rook"
+		},
+		{
+			"arts": 2,
+			"id": "bishop",
+			"name": "Bishop"
+		},
+		{
+			"arts": 2,
+			"id": "knight",
+			"name": "Knight"
+		},
+		{
+			"arts": 2,
+			"id": "fortress",
+			"name": "Fortress"
+		},
+		{
+			"arts": 2,
+			"id": "archer",
+			"name": "Archer"
+		},
+		{
+			"arts": 2,
+			"id": "scout",
+			"name": "Scout"
+		},
+		{
+			"arts": 2,
+			"id": "pawn",
+			"name": "Pawn"
+		},
+		{
+			"arts": 2,
+			"id": "checker",
+			"name": "Checker"
+		}
+	],
+	"size": 20,
+	"tile": 16,
+	"tiles": [
+		{
+			"id": "grass",
+			"name": "Grass"
+		},
+		{
+			"id": "road",
+			"name": "Road"
+		},
+		{
+			"id": "wheat",
+			"name": "Wheat"
+		},
+		{
+			"id": "water",
+			"name": "Water"
+		},
+		{
+			"id": "swamp",
+			"name": "Swamp"
+		},
+		{
+			"id": "bridge",
+			"name": "Bridge"
+		},
+		{
+			"id": "rocks",
+			"name": "Rocks"
+		}
+	]
+}

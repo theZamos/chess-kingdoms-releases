@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Every page address (/play, /changelog, …) loads this same page, so files load from the top. -->
+<base href="/">
+<title>Chess Kingdoms</title>
+<!-- The accounts server the webpage's pages ask (web/shell/api.js); the tests point it at a pretend one. -->
+<meta name="ck-api" content="https://api.chesskingdoms.net">
+<meta name="description" content="Chess Kingdoms: a turn-based strategy game built on chess, with an economy, castles and upgrades. Play in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="shell/shell.css">
+<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
+<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
+<script>(function(){var C=window.AudioContext||window.webkitAudioContext;if(!C)return;var a={ctxs:[],muted:false};window.ckAudio=a;var resume=C.prototype.resume;C.prototype.resume=function(){return a.muted?Promise.resolve():resume.apply(this,arguments)};function W(o){var c=o===undefined?new C():new C(o);a.ctxs.push(c);if(a.muted)c.suspend();return c}W.prototype=C.prototype;window.AudioContext=W;if(window.webkitAudioContext)window.webkitAudioContext=W;a.setMuted=function(m){a.muted=m;a.ctxs.forEach(function(c){if(m)c.suspend();else resume.call(c)})}})();</script>
+</head>
+<body class="look-game">
+<!-- The game (Godot) draws here, hidden behind the webpage until it shows one of its pages. -->
+<canvas id="canvas" tabindex="-1" aria-label="Chess Kingdoms">Your browser can't run the game.</canvas>
+
+<!-- The webpage in front of the game: the web dashboard (.scratch/web-dashboard/). -->
+<div id="web" class="web">
+  <header class="top">
+    <div class="bar">
+      <button class="wbtn profile desk" data-go="profile" type="button">
+        <span class="avatar"><img class="px" data-bar="picture" src="shell/art/default_picture.png" alt=""></span>
+        <span class="pname" data-bar="name">Profile</span>
+        <span class="badge" data-bar="unseen" hidden></span>
+      </button>
+      <a class="crest" href="/" data-go="home" aria-label="Chess Kingdoms: Home">
+        <img class="px" src="shell/art/king_white.png" alt=""><span class="name">Chess Kingdoms</span>
+      </a>
+      <span class="spacer"></span>
+      <button class="wbtn page desk" data-go="maps" type="button">Maps</button>
+      <button class="wbtn page desk" data-go="replays" type="button">Replays</button>
+      <button class="wbtn play desk" data-go="play" type="button">Play</button>
+      <button class="wbtn page desk settings" data-go="settings" type="button">Settings<span class="dot" data-bar="update" hidden></span></button>
+      <button class="wbtn page desk" data-go="admin" data-bar="admin" type="button" hidden>Admin</button>
+      <span class="spacer desk"></span>
+      <button class="wbtn small desk" data-go="tutorial" type="button">Tutorial</button>
+      <button class="wbtn small desk" data-go="feedback" type="button">Feedback</button>
+      <a class="wbtn small desk dl" href="https://github.com/theZamos/chess-kingdoms-releases/releases/latest/download/ChessKingdoms-windows.zip" download
+        title="The Windows game as a .zip, from the latest release."><span class="long">Download Desktop Client</span><span class="short">Download</span></a>
+      <button class="wbtn phone-only profile-phone" data-go="profile" type="button" aria-label="Your profile">
+        <span class="avatar"><img class="px" data-bar="picture" src="shell/art/default_picture.png" alt=""></span>
+        <span class="badge" data-bar="unseen" hidden></span>
+      </button>
+    </div>
+    <div class="wall"></div>
+  </header>
+
+  <main id="main">
+    <section class="view home" data-page="home" aria-label="Home">
+      <div class="slides" aria-hidden="true"></div>
+      <div class="title-box">
+        <h1 class="big-title">Chess Kingdoms</h1>
+        <div class="version" id="version"></div>
+      </div>
+      <aside class="news" aria-labelledby="news-heading">
+        <div class="news-head">
+          <h2 id="news-heading">What's new</h2>
+          <label class="switch" title="Switch between the game's look and a cleaner one (also in Settings > Graphics)">
+            <input type="checkbox" id="look-switch" role="switch"><span class="track" aria-hidden="true"><span class="knob"></span></span><span class="switch-text">Cleaner look</span>
+          </label>
+        </div>
+        <div class="scroll" id="news"><p class="muted">Loading the changelog…</p></div>
+        <a class="wbtn" href="/changelog" data-go="changelog">All versions</a>
+      </aside>
+    </section>
+
+    <!-- Maps (web/shell/pages/maps.js fills it). -->
+    <section class="view maps-page" data-page="maps" aria-label="Maps" hidden></section>
+    <!-- Replays (web/shell/pages/replays.js fills it). -->
+    <section class="view replays-page" data-page="replays" aria-label="Replays" hidden></section>
+    <!-- Your profile, another player's, and Clans (web/shell/pages/). -->
+    <section class="view profile-view" data-page="profile" aria-label="Your profile" hidden></section>
+    <section class="view player-view" data-page="player" aria-label="Player" hidden></section>
+    <section class="view clans-view" data-page="clans" aria-label="Clans" hidden></section>
+    <!-- Play (and the lobby) and Admin, as the game draws them (pages/mirror.js). -->
+    <section class="view play-view" data-page="play" aria-label="Play" hidden></section>
+    <section class="view admin-view" data-page="admin" aria-label="Admin" hidden></section>
+
+    <section class="view changelog" data-page="changelog" aria-label="Changelog" hidden>
+      <div class="pad">
+        <div class="head"><h1>Changelog</h1><a class="wbtn" href="/" data-go="home">Back</a></div>
+        <div class="log">
+          <nav class="versions" id="versions" aria-label="Versions"></nav>
+          <article class="box notes" id="notes"></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="tabs" aria-label="Pages">
+    <div class="wall"></div>
+    <div class="tabrow">
+      <a class="tab" href="/" data-go="home"><span class="ic"><img class="px" src="shell/art/king_white.png" alt=""></span>Home</a>
+      <button class="tab" data-go="maps" type="button"><span class="ic"><svg viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges"><g class="ink"><rect x="1" y="2" width="3" height="8"/><rect x="4" y="1" width="4" height="8"/><rect x="8" y="2" width="3" height="8"/></g><g class="fill"><rect x="2" y="3" width="1" height="6"/><rect x="5" y="2" width="2" height="6"/><rect x="9" y="3" width="1" height="6"/></g></svg></span>Maps</button>
+      <button class="tab play" data-go="play" type="button"><span class="ic"><img class="px" src="shell/art/knight_white.png" alt=""></span>Play</button>
+      <button class="tab" data-go="replays" type="button"><span class="ic"><svg viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges"><g class="ink"><rect x="2" y="1" width="8" height="1"/><rect x="2" y="10" width="8" height="1"/><rect x="3" y="2" width="1" height="2"/><rect x="8" y="2" width="1" height="2"/><rect x="4" y="4" width="1" height="1"/><rect x="7" y="4" width="1" height="1"/><rect x="5" y="5" width="2" height="2"/><rect x="4" y="7" width="1" height="1"/><rect x="7" y="7" width="1" height="1"/><rect x="3" y="8" width="1" height="2"/><rect x="8" y="8" width="1" height="2"/></g><g class="fill"><rect x="4" y="2" width="4" height="1"/><rect x="5" y="3" width="2" height="1"/><rect x="4" y="9" width="4" height="1"/><rect x="5" y="8" width="2" height="1"/></g></svg></span>Replays</button>
+      <button class="tab" data-act="more" type="button" aria-haspopup="dialog" aria-controls="sheet"><span class="ic"><svg viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges"><g class="ink"><rect x="1" y="2" width="10" height="2"/><rect x="1" y="5" width="10" height="2"/><rect x="1" y="8" width="10" height="2"/></g></svg></span>More<span class="dot" data-bar="update" hidden></span></button>
+    </div>
+  </nav>
+  <div class="scrim" id="scrim"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-label="More" aria-hidden="true">
+    <h3>More</h3>
+    <button class="wbtn" data-go="settings" type="button">Settings<span class="dot" data-bar="update" hidden></span></button>
+    <button class="wbtn" data-go="tutorial" type="button">Tutorial</button>
+    <button class="wbtn" data-go="feedback" type="button">Feedback</button>
+    <button class="wbtn" data-go="admin" data-bar="admin" type="button" hidden>Admin</button>
+  </div>
+</div>
+
+<!-- A note for a few seconds (MainMenu.say()). -->
+<div id="toast" class="toast" role="status" hidden></div>
+<!-- Invites popping up (social.js). -->
+<div id="invites" class="invites" aria-live="polite"></div>
+
+<!-- Shown while a page of the game's waits for the game to finish loading. -->
+<div id="wait" class="wait" role="status" hidden>
+  <div class="inner">
+    <div class="tagline" id="wait-tagline">Starting the game</div>
+    <h2 id="wait-page"></h2>
+    <div class="progress" aria-hidden="true"><i id="wait-bar"></i></div>
+    <p id="wait-text"></p>
+    <button class="wbtn" id="wait-back" type="button">Back</button>
+  </div>
+</div>
+
+<script>
+// Filled in by Godot's web export (html/custom_html_shell): the game's files and settings.
+window.ckGodot = { config: {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"mainPack":"index-f9aba703.pck","fileSizes":{"index-f9aba703.pck":6723540,"index.wasm":39509339},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4}, threads: false };
+</script>
+<script src="index.js"></script>
+<script type="module" src="shell/app.js"></script>
+</body>
+</html>
+
